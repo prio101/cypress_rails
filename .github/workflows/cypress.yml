@@ -10,7 +10,6 @@ on: [pull_request]
 jobs:  
   cypress-run:
     runs-on: ubuntu-18.04
-    # container: cypress/browsers:node14.16.0-chrome90-ff88
     services:
       postgres:
         image: postgres:latest
@@ -50,12 +49,10 @@ jobs:
 
       - name: Run Server
         run: bundler exec rails server -p 3000 &
-      
-      # - run: yarn wait-on 'http-get://localhost:3000' -t 30000
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        with:
-          browser: chrome
-          run: npm run cy:browser
+        # with:
+        #   browser: chrome
+        #   run: npm run cy:browser
 
