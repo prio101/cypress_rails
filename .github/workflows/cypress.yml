@@ -9,8 +9,8 @@ on: [pull_request]
 
 jobs:  
   cypress-run:
-    # runs-on: ubuntu-18.04
-    container: cypress/browsers:node14.16.0-chrome90-ff88
+    runs-on: cypress/browsers:node14.16.0-chrome90-ff88
+    # container: 
     services:
       postgres:
         image: postgres:latest
