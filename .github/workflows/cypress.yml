@@ -1,5 +1,4 @@
 name: 'Cypress and Rails'
-description: 'A Github Action Job to run Cypress and Rails server'
 
 env:
   RUBY_VERSION: 2.7.2
