@@ -38,14 +38,14 @@ jobs:
       - name: Install packages
         run: yarn install
 
+      - name: Install postgres client
+        run: sudo apt-get install libpq-dev
+      
       - name: Install dependencies
         run: |
           gem install bundler
           bundler install
-      - name: Set up Postgresql
-        run: |
-          sudo apt-get install postgresql libpq-dev
-          sudo service postgresql start
+      
       - name: Create database
         run: |
           bundler exec rails db:create RAILS_ENV=test
