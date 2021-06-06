@@ -52,7 +52,7 @@ jobs:
           bundler exec rails db:migrate RAILS_ENV=test
 
       - name: Run Server
-        run: bundler exec rails server RAILS_ENV=test -p 3000
+        run: bundler exec rails server -e test -p 3000
 
       - name: "Test Rails Server Endpoint"
         run: |
