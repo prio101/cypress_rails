@@ -8,8 +8,8 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: 'prio'
-  password: 'prio'
+  username: 'postgres'
+  password: 'postgres'
   host: localhost
   port: 5432
 
