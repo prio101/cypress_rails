@@ -52,12 +52,14 @@ jobs:
           bundler exec rails db:migrate RAILS_ENV=test
 
       - name: Run Server
-        run: bundler exec rails server -e test -p 3000
-
-      - name: "Test Rails Server Endpoint"
-        run: |
-          curl http://localhost:3000 &&
+        run: | 
+          bundler exec rails server -e test -p 3000 &&
           yarn cypress run
+
+      # - name: "Test Rails Server Endpoint"
+      #   run: |
+      #     curl http://localhost:3000 &&
+      #     yarn cypress run
 
       # - name: Cypress run
       #   uses: cypress-io/github-action@v2
