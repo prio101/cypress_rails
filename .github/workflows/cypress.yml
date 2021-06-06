@@ -53,7 +53,7 @@ jobs:
 
       - name: Run Server
         run: | 
-          bundler exec rails server -e test -p 3000 &&
+          bundler exec rails server -e test -p 3000 &
           yarn cypress run
 
       # - name: "Test Rails Server Endpoint"
