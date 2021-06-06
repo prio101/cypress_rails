@@ -10,6 +10,8 @@ default: &default
   timeout: 5000
   username: 'prio'
   password: 'prio'
+  host: localhost
+  port: 5432
 
 development:
   <<: *default
