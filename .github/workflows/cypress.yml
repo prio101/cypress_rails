@@ -52,11 +52,18 @@ jobs:
           bundler exec rails db:migrate RAILS_ENV=test
 
       - name: Run Server
-        run: |
-          yarn install
-          bundler exec rails server -e test -p 3000 &
-          yarn cypress run
-
+        run: bundler exec rails server -e test -p 3000 &
+      - run: npx cypress -v > .cypress-version
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-cache-v3-${{ runner.os }}-${{ hashFiles('.cypress-version') }}
+      - run: yarn cypress install
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: "12"
+      - name: Run tests
+        run: yarn cypress run
       # - name: "Test Rails Server Endpoint"
       #   run: |
       #     curl http://localhost:3000 &&
